@@ -23,6 +23,13 @@ window.eaglercraftXOpts = {
     }
   ],
   assetsURI: [ { url: 'game/assets.epw' } ],
+  hooks: {
+    localStorageSaved: async (k, d) => {
+      if (k === 's') {
+        await s();
+      }
+    },
+  },
   optionsTXT: {
     // fov: '0.25',
     enableFNAWSkins: false,
@@ -71,8 +78,12 @@ async function start () {
     }
   }
   localStorage.setItem('_eaglercraftX.g', await gzipC(g));
-  await writeServers(['_eaglercraftX.s']);
+  await s();
   main();
+}
+
+async function s() {
+  await writeServers(['_eaglercraftX.s']);
 }
 
 async function gzipC (txt) {
