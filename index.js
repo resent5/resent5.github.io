@@ -92,6 +92,15 @@ CanvasRenderingContext2D.prototype.drawImage = new Proxy(CanvasRenderingContext2
   }
 });
 
+Worker.prototype.postMessage = new Proxy(Worker.prototype.postMessage, {
+  apply(a, b, c) {
+    if (c[0]?.eaglercraftXOpts?.hooks) {
+      delete c[0].eaglercraftXOpts.hooks;
+    }
+    return Reflect.apply(a, b, c);
+  }
+});
+
 async function start () {
   loader.canvas = document.querySelector('.loader');
   const ver = await gzipC(JSON.stringify({ 'lastUpdated': Date.now(), 'integer': currentResentVersion }));
