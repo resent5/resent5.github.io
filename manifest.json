@@ -1,0 +1,15 @@
+{
+    "name": "Resent Client",
+    "short_name": "Resent",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#ff229b",
+    "theme_color": "#ff229b",
+    "icons": [
+      {
+        "src": "resent.png",
+        "type": "image/png",
+        "sizes": "1024x1024"
+      }
+    ]
+  }
