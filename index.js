@@ -1,6 +1,5 @@
 const currentResentVersion = 510;
 const currentResentStoreVersion = 501;
-
 let flag1 = false;
 let flag2 = false;
 
